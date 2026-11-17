@@ -1,0 +1,4 @@
+html,body{margin:0;height:100%;background:#2b2436;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+canvas{display:block;touch-action:none;border-radius:6px}
+.back{position:fixed;right:12px;bottom:10px;font:14px sans-serif;color:#fff9;text-decoration:none}

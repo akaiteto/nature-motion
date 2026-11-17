@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>生き物と自然の動き — ブラウザだけで動くデモ集</title>
+<style>
+  :root { --ink:#4a3b5c; --bg:#fff6fb; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Noto Sans CJK JP","Hiragino Sans","Yu Gothic",sans-serif; }
+  header { padding: 40px 24px 16px; text-align: center; }
+  h1 { margin: 0 0 8px; font-size: clamp(24px, 4vw, 38px); }
+  header p { margin: 0; opacity: .8; }
+  main { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; padding: 24px; max-width: 1280px; margin: 0 auto; }
+  a.card { display: block; background: #fff; border: 4px solid var(--ink); border-radius: 22px; overflow: hidden; color: inherit; text-decoration: none; transition: transform .15s; }
+  a.card:hover { transform: translateY(-4px) rotate(-.5deg); }
+  a.card img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-bottom: 4px solid var(--ink); }
+  .body { padding: 14px 18px 18px; }
+  .body h2 { margin: 0 0 6px; font-size: 20px; }
+  .body p { margin: 0 0 8px; font-size: 14px; line-height: 1.6; }
+  .tag { display: inline-block; font-size: 12px; background: #ffe27a; border: 2px solid var(--ink); border-radius: 99px; padding: 1px 10px; margin-right: 4px; }
+  footer { text-align: center; padding: 20px 24px 40px; font-size: 13px; opacity: .75; }
+</style>
+<body>
+<header>
+  <h1>生き物と自然の動き</h1>
+  <p>ライブラリなし・HTML ひとつずつ。ルールと少しの物理で「生きている感じ」を作るデモ集</p>
+</header>
+<main id="list"></main>
+<footer>
+  コードは MIT ライセンス。考え方の出典は README の「参考」を見てください。
+</footer>
+<script>
+const DEMOS = [
+  ['01-fish', '泳ぐ魚', '背骨の鎖に体の幅の表をかぶせるだけ。頭は少しずつしか曲がれない。クリックでエサ。', ['鎖', '手続き型']],
+  ['02-lizard-spider', 'トカゲとクモ', '足が離れすぎたら1歩。ひざは2関節の逆運動学（IK）で決める。', ['IK', '手続き型']],
+  ['03-boids', '群れ（Boids）', '分離・整列・結合の3つのルールだけで群れになる。マウスがタカ。', ['群れ']],
+  ['04-slime', 'ぷるぷるスライム', '距離と面積を保つ位置ベースの物理。ジャンプ前の「ため」は演出のうそ。', ['PBD', 'ソフトボディ']],
+  ['05-jellyfish', 'クラゲ', 'かさは速く縮んでゆっくり戻る。触手はひもの物理で、あとから揺れる。', ['ヴェルレ', '二次的な動き']],
+  ['06-cape-hair', 'マントと髪の揺れ', '同じ動きの2人。揺れものがあるだけで生きて見える。', ['布', '二次的な動き']],
+  ['07-fire', 'アニメ調の炎', '同じ流体を、グラデーションと4段階の色の2通りで塗る。', ['流体', 'トゥーン']],
+  ['08-water', '水面とアヒル', '柱の高さだけの水（高さ場）。アヒルと水が押し合う。クリックで追加。', ['高さ場', '浮力']],
+  ['09-paint-smoke', '絵の具の渦', '流体に色を流しこむ。渦を強めるとくるくる巻く。ドラッグでかき混ぜ。', ['流体']],
+  ['10-patterns', '模様が育つ', '反応拡散（Gray-Scott）。F と k の2つの数だけで模様が変わる。', ['反応拡散']],
+  ['11-squash', 'ぽよん（つぶれと伸び）', '同じ跳び方を3通りに見せる。つぶれと伸び、ため、余韻。', ['12原則', 'ゲームの手触り']],
+];
+document.getElementById('list').innerHTML = DEMOS.map(([dir, title, text, tags]) => `
+  <a class="card" href="demos/${dir}/index.html">
+    <img src="assets/thumbs/${dir}.jpg" alt="${title}" loading="lazy">
+    <div class="body"><h2>${dir.slice(0, 2)} ${title}</h2><p>${text}</p>${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+  </a>`).join('');
+</script>
+</body>
+</html>
