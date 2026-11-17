@@ -2,7 +2,7 @@
 <html lang="ja">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>関数でかわいく動く文字 — 17本</title>
+<title>関数でかわいく動く文字 — 27本</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap');
   body { margin: 0; background: #fff6fb; color: #4a3b5c; font-family: "M PLUS Rounded 1c", sans-serif; }
@@ -20,7 +20,7 @@
 <body>
 <header>
   <h1>関数でかわいく動く文字</h1>
-  <p>名前のついた関数群（ペナー、キレス、レヴィン、名前つき曲線、フーリエ、ばね、ノイズ、アトラクタ）で、文字を動かす10本と、文字を立体にした3D版7本（11〜17、three.js r187 を同梱）。画面は 1920×1080、ループ再生。</p>
+  <p>名前のついた関数群（ペナー、キレス、レヴィン、名前つき曲線、フーリエ、ばね、ノイズ、アトラクタ）で、文字を動かす10本（01〜10）、文字を立体にした3D版7本（11〜17）、3Dの定番セット（変形・距離関数・素材・後処理・カメラ）を2本ずつの10本（18〜27）。three.js r187 を同梱。画面は 1920×1080、ループ再生。</p>
 </header>
 <div class="grid" id="grid"></div>
 <script>
@@ -42,6 +42,16 @@ const items = [
   ['15-voxel-build', 'ブロックで積み上がる文字', 'InstancedMesh ＋ easeOutBounce ＋ cubicPulse'],
   ['16-css-layers', 'CSSだけの立体文字', 'translateZ で 28 枚重ねる（three.js なし）'],
   ['17-text-tunnel', '文字のトンネル', '円周に並べた文字の環 ＋ カメラの前進'],
+  ['18-twist-bend', '【変形】ねじる・曲げる', 'ツイスト／ベンド（Barr 1984・Blender シンプル変形）'],
+  ['19-taper-stretch', '【変形】細める・伸ばす', 'テーパー／ストレッチ ＋ ばね'],
+  ['20-sdf-mercury', '【距離関数】水銀のようにくっつく', 'なめらかな合体 smin ＋ レイマーチング（Quilez）'],
+  ['21-sdf-carve-onion', '【距離関数】くり抜きと殻', '引き算・共通部分・殻（オニオン）'],
+  ['22-material-catalog', '【素材】素材カタログ', '透過＋分散／薄膜／異方性／シーン（MeshPhysicalMaterial）'],
+  ['23-jelly-glass', '【素材】ゼリーの文字', '透過＋厚み＋吸収の色 ＋ ばね'],
+  ['24-neon-bloom', '【後処理】ネオンの文字', 'UnrealBloomPass ＋ AfterimagePass'],
+  ['25-filter-switch', '【後処理】フィルターの着せ替え', '網点・ピクセル化・ドット・フィルム・グリッチ'],
+  ['26-dolly-zoom', '【カメラ】めまいショット', 'ドリーズーム：近づきながら画角を広げる'],
+  ['27-rack-focus', '【カメラ】ピント送りとホイップパン', 'BokehPass ＋ AfterimagePass'],
 ];
 document.getElementById('grid').innerHTML = items.map(([d, t, f]) => `
   <div class="card"><a class="view" href="${d}/index.html"><img src="thumbs/${d}.jpg" alt=""><div class="t">${d.slice(0, 2)}　${t}</div><div class="f">${f}</div></a>
