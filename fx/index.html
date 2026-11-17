@@ -2,7 +2,7 @@
 <html lang="ja">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>関数でかわいく動く文字 — 27本</title>
+<title>関数でかわいく動く文字 — 10本</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap');
   body { margin: 0; background: #fff6fb; color: #4a3b5c; font-family: "M PLUS Rounded 1c", sans-serif; }
@@ -20,9 +20,10 @@
 <body>
 <header>
   <h1>関数でかわいく動く文字</h1>
-  <p>名前のついた関数群（ペナー、キレス、レヴィン、名前つき曲線、フーリエ、ばね、ノイズ、アトラクタ）で、文字を動かす10本（01〜10）、文字を立体にした3D版7本（11〜17）、3Dの定番セット（変形・距離関数・素材・後処理・カメラ）を2本ずつの10本（18〜27）。three.js r187 を同梱。画面は 1920×1080、ループ再生。</p>
+  <p>名前のついた関数群（ペナー、キレス、レヴィン、名前つき曲線、フーリエ、ばね、ノイズ、アトラクタ）で、文字を動かす10本（01〜10、動画に採用）。下の「参考」は3D版の試作（11〜27、動画には使わない）。画面は 1920×1080、ループ再生。</p>
 </header>
 <div class="grid" id="grid"></div>
+<details style="padding:0 6vw 60px"><summary style="cursor:pointer;font-weight:800">参考：3D版の試作（11〜27、不採用）</summary><div class="grid" id="grid3d" style="padding:20px 0 0;opacity:.75"></div></details>
 <script>
 const items = [
   ['01-fourier-maru', 'フーリエの円で描く「かわいい」', 'フーリエ級数（エピサイクル）／円を減らすと丸文字に'],
@@ -53,9 +54,12 @@ const items = [
   ['26-dolly-zoom', '【カメラ】めまいショット', 'ドリーズーム：近づきながら画角を広げる'],
   ['27-rack-focus', '【カメラ】ピント送りとホイップパン', 'BokehPass ＋ AfterimagePass'],
 ];
-document.getElementById('grid').innerHTML = items.map(([d, t, f]) => `
+const card = ([d, t, f]) => `
   <div class="card"><a class="view" href="${d}/index.html"><img src="thumbs/${d}.jpg" alt=""><div class="t">${d.slice(0, 2)}　${t}</div><div class="f">${f}</div></a>
-  <a class="src" href="${d}/main.js">ソース（main.js）</a></div>`).join('');
+  <a class="src" href="${d}/main.js">ソース（main.js）</a></div>`
+const html = items => items.map(card).join('');
+document.getElementById('grid').innerHTML = html(items.slice(0, 10));
+document.getElementById('grid3d').innerHTML = html(items.slice(10));
 </script>
 </body>
 </html>
