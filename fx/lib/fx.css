@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap');
+html, body { margin: 0; height: 100%; background: #2b2436; overflow: hidden; }
+#wrap { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #fffafd 0%, #ffeef7 60%, #fbe2f0 100%);
+  font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Noto Sans CJK JP", sans-serif; }
+canvas#stage { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+.chip { position: absolute; left: 40px; bottom: 36px; padding: 12px 26px; border-radius: 999px; background: rgba(255,255,255,.92);
+  border: 4px solid #4a3b5c; color: #4a3b5c; font-size: 30px; font-weight: 800; z-index: 10; white-space: nowrap; }
+.chip small { font-size: 22px; opacity: .7; margin-left: 10px; }
