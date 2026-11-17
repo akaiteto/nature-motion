@@ -1,5 +1,6 @@
 // イニゴ・キレスの小さな関数（Inigo Quilez, "Useful little functions"）
 // https://iquilezles.org/articles/functions/
+// コードの元：MIT ライセンス（Inigo Quilez。全文は ../../THIRD_PARTY_NOTICES.md）
 
 // 指数インパルス：一瞬ぴょんと立ち上がり、すっと戻る。x=1/k で最大値 1
 export const expImpulse = (x, k) => { const h = k * x; return h * Math.exp(1 - h); };

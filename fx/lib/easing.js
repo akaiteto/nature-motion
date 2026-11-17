@@ -1,4 +1,5 @@
 // ロバート・ペナーのイージング関数（Robert Penner's Easing Equations, 2001）
+// 元の式：Robert Penner（https://robertpenner.com/easing/、BSD／MIT ライセンス。全文は ../../THIRD_PARTY_NOTICES.md）
 // x は 0〜1 の進み具合。返り値も 0 で始まり 1 で終わる（途中で 1 を超えるものもある）。
 // 一覧の図：https://easings.net
 
