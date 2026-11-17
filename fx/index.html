@@ -2,7 +2,7 @@
 <html lang="ja">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>関数でかわいく動く文字 — 10本</title>
+<title>関数でかわいく動く文字 — 17本</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap');
   body { margin: 0; background: #fff6fb; color: #4a3b5c; font-family: "M PLUS Rounded 1c", sans-serif; }
@@ -20,7 +20,7 @@
 <body>
 <header>
   <h1>関数でかわいく動く文字</h1>
-  <p>名前のついた関数群（ペナー、キレス、レヴィン、名前つき曲線、フーリエ、ばね、ノイズ、アトラクタ）で、文字を動かす10本。画面は 1920×1080、ループ再生。</p>
+  <p>名前のついた関数群（ペナー、キレス、レヴィン、名前つき曲線、フーリエ、ばね、ノイズ、アトラクタ）で、文字を動かす10本と、文字を立体にした3D版7本（11〜17、three.js r187 を同梱）。画面は 1920×1080、ループ再生。</p>
 </header>
 <div class="grid" id="grid"></div>
 <script>
@@ -35,6 +35,13 @@ const items = [
   ['08-superformula-heart', '星から花からハートへ', 'スーパーフォーミュラ（Gielis）＋ ハートの曲線'],
   ['09-spring-drag', 'ひっぱるとぷるん', 'ばね：二次の動き（t3ssel8r）'],
   ['10-noise-wind', 'ふわふわと風', 'パーリンノイズ ＋ カールノイズ ＋ ばね'],
+  ['11-puffy-balloon', 'ぷっくり風船文字', '押し出し＋大きなベベル ／ easeOutElastic ／ ばね'],
+  ['12-anamorphic', '見る角度で読める文字', 'アナモルフォーシス：光線上のブロック ／ カメラで着地'],
+  ['13-text-knot', '結び目を流れる文字', '文字の帯テクスチャ ＋ トーラス結び目 ／ UV を流す'],
+  ['14-domino-twist', 'ドミノ回転する立体文字', '押し出し文字 ＋ easeInOutBack の時間差'],
+  ['15-voxel-build', 'ブロックで積み上がる文字', 'InstancedMesh ＋ easeOutBounce ＋ cubicPulse'],
+  ['16-css-layers', 'CSSだけの立体文字', 'translateZ で 28 枚重ねる（three.js なし）'],
+  ['17-text-tunnel', '文字のトンネル', '円周に並べた文字の環 ＋ カメラの前進'],
 ];
 document.getElementById('grid').innerHTML = items.map(([d, t, f]) => `
   <div class="card"><a class="view" href="${d}/index.html"><img src="thumbs/${d}.jpg" alt=""><div class="t">${d.slice(0, 2)}　${t}</div><div class="f">${f}</div></a>

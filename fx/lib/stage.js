@@ -6,6 +6,8 @@ export const PAL = {
   yellow: '#ffe27a', sky: '#9fd8ff', peach: '#ffc29f', white: '#ffffff'
 };
 export const RAINBOW = [PAL.pink, PAL.peach, PAL.yellow, PAL.mint, PAL.sky, PAL.lav];
+// 3D 用の濃いめの色（光が当たると明るく見えるので、少し濃くしておく）
+export const VIVID = ['#ff4f93', '#ff9b52', '#ffc531', '#2fcf9f', '#3fa9ff', '#8c6cff'];
 export const FONT = '"M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Noto Sans CJK JP", sans-serif';
 
 // 乱数（シード付き。毎回同じ動きにする）
