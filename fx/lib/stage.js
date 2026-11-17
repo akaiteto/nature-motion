@@ -39,6 +39,13 @@ export async function run({ setup, update = () => {}, render, loop = 10, fonts =
   const wrap = document.getElementById('wrap');
   fitWrap(wrap);
   const capture = new URLSearchParams(location.search).has('capture');
+  // 一覧へ戻るボタン（左上に固定。Esc キーでも戻る。録画のときは出さない）
+  if (!capture && !document.querySelector('.back')) {
+    const back = document.createElement('a');
+    back.className = 'back'; back.href = '../index.html'; back.textContent = '← 一覧へ';
+    document.body.appendChild(back);
+    addEventListener('keydown', e => { if (e.key === 'Escape') location.href = '../index.html'; });
+  }
   try { await Promise.race([Promise.all(fonts.map(f => document.fonts.load(f))), new Promise(r => setTimeout(r, 2500))]); } catch (e) {}
   let t = 0, frame = 0;
   const reset = () => { t = 0; frame = 0; setup && setup(); };
